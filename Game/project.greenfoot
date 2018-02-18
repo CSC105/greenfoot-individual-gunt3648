@@ -1,0 +1,32 @@
+#Greenfoot properties
+#Sun Feb 18 15:18:02 ICT 2018
+target1.type=ClassTarget
+project.charset=UTF-8
+mainWindow.height=600
+editor.fx.0.width=818
+readme.y=10
+readme.x=10
+class.FlaminWorld.image=flappy_background.png
+version=3.0.0
+readme.height=58
+class.Flamingo.superclass=greenfoot.Actor
+target1.typeParameters=
+world.lastInstantiated=FlaminWorld
+target1.height=50
+editor.fx.0.y=94
+mainWindow.y=224
+target1.width=90
+mainWindow.x=196
+editor.fx.0.x=551
+class.Flamingo.image=Flamingo_mini1.png
+readme.width=47
+editor.fx.0.height=747
+package.numDependencies=0
+target1.y=0
+target1.x=0
+class.FlaminWorld.superclass=greenfoot.World
+mainWindow.width=850
+package.numTargets=1
+target1.name=MyWorld
+target1.showInterface=false
+readme.name=@README
