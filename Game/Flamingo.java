@@ -32,18 +32,18 @@ public class Flamingo extends Actor
         dy = dy + g;
         
         animateFla();
-            
-        if(getY() > getWorld().getHeight()) {
+        
+        if(getOneIntersectingObject(Stone.class) != null) {
             gameOver();
-        }
-    }
+        }   
+    } 
     
     public void jump() {
         if(getY()+dy <= 320)
             setLocation( getX(), (int)(getY() + dy));
         
         if(Greenfoot.isKeyDown("space")== true && onGround() == true) {
-            dy = -15;
+            dy = -16;
         }
         
         if(dy > -10 && dy < 0) {

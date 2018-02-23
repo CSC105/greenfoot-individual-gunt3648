@@ -16,17 +16,27 @@ public class FlaminWorld extends World
     
     public FlaminWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 600x400 cells w ith a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
-        
-        //Create obj
-        Flamingo fla = new Flamingo();
-        //Add Flamingo to world
-        addObject(fla, 100, 315);
         
         Ground gro = new Ground();
         addObject(gro, 300, 380);
+        
+        Flamingo fla = new Flamingo();
+        addObject(fla, 100, 315);
+        
+   }
+   
+   int spawnStone = 20000, count = 0;
+   
+   public void act() {
+        count += 1+Greenfoot.getRandomNumber(900);
+        if(count >= spawnStone){
+            Stone stupid_stone = new Stone();
+            addObject(stupid_stone, 750, 345);
+            count = 0;
+        }
     }
     
-    
 }
+ 
