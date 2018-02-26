@@ -16,6 +16,7 @@ public class Stone extends Actor
     
     public void act() 
     {
+        getImage().scale(50,45);
         setLocation(getX()+ stone_speed , 345); 
     }  
 }

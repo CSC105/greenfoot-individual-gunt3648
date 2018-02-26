@@ -19,15 +19,19 @@ public class FlaminWorld extends World
         // Create a new world with 600x400 cells w ith a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
         
+        setPaintOrder(GameOver.class, Flamingo.class, Stone.class, Ground.class);
+        
         Ground gro = new Ground();
         addObject(gro, 300, 380);
         
         Flamingo fla = new Flamingo();
         addObject(fla, 100, 315);
         
+        ScoreBoard score = new ScoreBoard("Score : ");
+        addObject(score, 50, 50);
    }
    
-   int spawnStone = 20000, count = 0;
+   int spawnStone = 20000, count = 0, hardness = 1000;
    
    public void act() {
         count += 1+Greenfoot.getRandomNumber(900);
@@ -36,6 +40,10 @@ public class FlaminWorld extends World
             addObject(stupid_stone, 750, 345);
             count = 0;
         }
+        
+        
+        ScoreBoard board = new ScoreBoard("Score : ");
+        addObject(board, 50, 50);
     }
     
 }

@@ -10,6 +10,7 @@ public class Flamingo extends Actor
 {
     double dy = 0;
     double g = 0.98;
+    long time = System.currentTimeMillis();
     
     private GreenfootImage[] images = new GreenfootImage[36];
     private int num = 0;
@@ -27,6 +28,8 @@ public class Flamingo extends Actor
     
     public void act() 
     {
+        running();
+        
         jump();
         
         dy = dy + g;
@@ -37,6 +40,10 @@ public class Flamingo extends Actor
             gameOver();
         }   
     } 
+    
+    public void running() {
+        ScoreBoard.score ++;
+    }
     
     public void jump() {
         if(getY()+dy <= 320)
@@ -71,5 +78,6 @@ public class Flamingo extends Actor
         GameOver gameOver = new GameOver();
         getWorld().addObject(gameOver, getWorld().getWidth()/2, getWorld().getHeight()/2);
         Greenfoot.stop();
+        ScoreBoard.score = 0;
     }
 }
