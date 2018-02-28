@@ -18,5 +18,7 @@ public class Stone extends Actor
     {
         getImage().scale(50,45);
         setLocation(getX()+ stone_speed , 345); 
+        if(getX() < -100)
+            getWorld().removeObject(this);
     }  
 }

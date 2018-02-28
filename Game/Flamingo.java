@@ -10,7 +10,6 @@ public class Flamingo extends Actor
 {
     double dy = 0;
     double g = 0.98;
-    long time = System.currentTimeMillis();
     
     private GreenfootImage[] images = new GreenfootImage[36];
     private int num = 0;
@@ -19,18 +18,24 @@ public class Flamingo extends Actor
      * Act - do whatever the Flamingo wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
     public void addedToWorld(World FlaminWorld) {
       for(int i = 0; i < images.length; i++) {
           images[i] = new GreenfootImage("Flamingo_mini"+(i+1)+".png");
         }
-        setImage(images[0]);
+      setImage(images[0]);
     }
     
     public void act() 
     {
         running();
         
-        jump();
+        if(getY()+dy <= 320)
+            setLocation( getX(), (int)(getY() + dy));
+            
+        if(Greenfoot.isKeyDown("space")== true && onGround() == true) {
+            dy = -16;
+        }
         
         dy = dy + g;
         
@@ -43,23 +48,6 @@ public class Flamingo extends Actor
     
     public void running() {
         ScoreBoard.score ++;
-    }
-    
-    public void jump() {
-        if(getY()+dy <= 320)
-            setLocation( getX(), (int)(getY() + dy));
-        
-        if(Greenfoot.isKeyDown("space")== true && onGround() == true) {
-            dy = -16;
-        }
-        
-        if(dy > -10 && dy < 0) {
-            setRotation(-20);
-        }
-        
-        else if(dy >= 0) {
-            setRotation(0);
-        }
     }
     
     private boolean onGround() {
